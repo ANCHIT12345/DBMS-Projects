@@ -209,11 +209,16 @@ SELECT * FROM Books WHERE price > 1000;
 CREATE TABLE HighValueBooks SELECT * FROM Books WHERE price > 1000;
 SELECT * FROM HighValueBooks;
 
+SELECT Issues.issue_id, Members.member_id, Books.book_id,Issues.issue_date, Issues.return_date, Books.price, Issues.late_fee
+FROM Issues
+JOIN Members ON Members.member_id = Issues.member_id 
+JOIN Books ON Books.book_id = Issues.book_id;
 
+SELECT i.issue_id, i.book_id, i.member_id, i.issue_date, i.return_date, i.late_fee, m.member_id FROM Issues i JOIN Members m WHERE m.member_id = 1;
 
+SELECT * FROM Books;
 
-
-
+SELECT * FROM Issues WHERE book_id IN (SELECT book_id FROM Books WHERE price > 2000 );
 
 
 
