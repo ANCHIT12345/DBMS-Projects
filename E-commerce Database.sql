@@ -86,6 +86,10 @@ INNER JOIN Order_Items OI ON P.product_id = OI.product_id
 ORDER BY S.supplier_id ASC;
 
 
+--🔹  RIGHT JOIN
+--Q5. List all suppliers and the products they supply. Include suppliers who haven't supplied any product yet.
+
+--SELECT * FROM Products P RIGHT JOIN Suppliers S ON P.product_id = S.product_id ORDER BY S.supplier_id ASC;
 
 
 
