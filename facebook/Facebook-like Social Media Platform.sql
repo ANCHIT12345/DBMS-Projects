@@ -53,36 +53,45 @@ SELECT * FROM Posts P WHERE
 
 --Show user name, post count, and average likes per post using a subquery in the FROM clause.
 
-SELECT U.name,s.post_count,s.avg_likes FROM Users U 
-JOIN (SELECT P.user_id, COUNT(P.post_id) post_count,ISNULL(AVG(like_counts.like_count),0) avg_likes  FROM Posts P 
-LEFT JOIN (SELECT L.post_id, COUNT(*) AS like_count FROM Likes L GROUP BY l.post_id)
-AS Like_counts ON like_counts.post_id = P.post_id GROUP BY P.user_id) AS s ON s.user_id = U.user_id;
+--SELECT U.name,s.post_count,s.avg_likes FROM Users U 
+--JOIN (SELECT P.user_id, COUNT(P.post_id) post_count,ISNULL(AVG(like_counts.like_count),0) avg_likes  FROM Posts P 
+--LEFT JOIN (SELECT L.post_id, COUNT(*) AS like_count FROM Likes L GROUP BY l.post_id)
+--AS Like_counts ON like_counts.post_id = P.post_id GROUP BY P.user_id) AS s ON s.user_id = U.user_id;
 
 --🔹 4. Nested Subqueries
 --Find the top 3 users who have received the most comments on their posts.
 
-SELECT P.user_id, COUNT(C.comment_id) total_comments FROM Posts P LEFT JOIN Comments C ON P.post_id = C.post_id GROUP BY P.user_id;
+--SELECT P.user_id, COUNT(C.comment_id) total_comments FROM Posts P LEFT JOIN Comments C ON P.post_id = C.post_id GROUP BY P.user_id;
 
-SELECT TOP 3 * 
-FROM Users U JOIN 
-(SELECT P.user_id, COUNT(C.comment_id) total_comments FROM Posts P LEFT JOIN Comments C ON P.post_id = C.post_id GROUP BY P.user_id) 
-user_count ON U.user_id = user_count.user_id ORDER BY user_count.total_comments DESC;
+--SELECT TOP 3 * 
+--FROM Users U JOIN 
+--(SELECT P.user_id, COUNT(C.comment_id) total_comments FROM Posts P LEFT JOIN Comments C ON P.post_id = C.post_id GROUP BY P.user_id) 
+--user_count ON U.user_id = user_count.user_id ORDER BY user_count.total_comments DESC;
 
 --List users who have liked a post that has more than 10 comments.
 
-SELECT C.post_id, COUNT(*) total_comments FROM Comments C GROUP BY C.post_id HAVING COUNT(*) > 4
-SELECT * FROM Likes L WHERE L.post_id IN (SELECT C.post_id FROM Comments C GROUP BY C.post_id HAVING COUNT(*) > 4);
-SELECT * FROM Users U JOIN Likes L ON U.user_id = L.user_id WHERE L.post_id IN (SELECT C.post_id FROM Comments C GROUP BY C.post_id HAVING COUNT(*)> 4);
+--SELECT C.post_id, COUNT(*) total_comments FROM Comments C GROUP BY C.post_id HAVING COUNT(*) > 4
+--SELECT * FROM Likes L WHERE L.post_id IN (SELECT C.post_id FROM Comments C GROUP BY C.post_id HAVING COUNT(*) > 4);
+--SELECT * FROM Users U JOIN Likes L ON U.user_id = L.user_id WHERE L.post_id IN (SELECT C.post_id FROM Comments C GROUP BY C.post_id HAVING COUNT(*)> 4);
 
 
 --List all posts created by users who joined before the average join date of all users.
 
-SELECT * FROM Posts P WHERE P.user_id IN (SELECT U.user_id FROM Users U WHERE CAST(U.join_date AS FLOAT) < (SELECT AVG(CAST(join_date AS FLOAT)) FROM Users));
+--SELECT * FROM Posts P WHERE P.user_id IN (SELECT U.user_id FROM Users U WHERE CAST(U.join_date AS FLOAT) < (SELECT AVG(CAST(join_date AS FLOAT)) FROM Users));
 
 --🔹 5. Correlated Subqueries (vs. Independent)
 --Display users whose total post count is above the average post count for users in their city.
 
+-- post per user
+SELECT COUNT(*) user_posts FROM Users U LEFT JOIN Posts P ON U.user_id = P.user_id 
+WHERE U.city = 'Delhi' GROUP BY U.user_id;
 
+SELECT AVG(user_posts) FROM (SELECT COUNT(*) user_posts FROM Users U LEFT JOIN Posts P ON U.user_id = P.user_id 
+WHERE U.city = 'Delhi' GROUP BY U.user_id) AS cpc;
+
+SELECT * FROM Users U1 WHERE (SELECT COUNT(*) FROM Posts P WHERE U1.user_id = P.user_id)>
+(SELECT AVG(user_posts) FROM (SELECT COUNT(*) user_posts FROM Users U LEFT JOIN Posts P ON U.user_id = P.user_id 
+WHERE U.city = U1.city GROUP BY U.user_id) AS cpc);
 
 --Find posts that have more likes than any other post by the same user.
 
