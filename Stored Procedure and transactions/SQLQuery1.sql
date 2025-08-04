@@ -187,7 +187,13 @@ EXEC USP_TotalSalesPerGenre;
 
 --Create a stored procedure that deletes all books from the Books table where stock is zero and no orders exist for them.
 
-SELECT COUNT(O.BookID) AS sales FROM Orders O INNER JOIN Books B ON O.BookID = B.BookID GROUP BY B.BookID HAVING COUNT(O.BookID) >=1
+CREATE PROC USP_Del_Books_with_no_stock_And_No_Orders
+AS
+BEGIN
+DELETE FROM Books WHERE StockQty = 0 AND BookID NOT IN (SELECT DISTINCT BookID FROM Orders)
+END;
+
+EXEC USP_Del_Books_with_no_stock_And_No_Orders;
 
 --Write a stored procedure PlaceOrder that:
 
@@ -198,3 +204,44 @@ SELECT COUNT(O.BookID) AS sales FROM Orders O INNER JOIN Books B ON O.BookID = B
 --If yes, inserts a new row in the Orders table and updates StockQty.
 
 --If not, returns a message like "Not enough stock"
+
+SELECT Stockqty FROM Books WHERE BookID = @BookID;
+
+CREATE PROC USP_PlaceOrder
+	@BookID INT,
+	@Quantity INT
+AS
+BEGIN
+	DECLARE @AvailableStock INT;
+
+	BEGIN TRY
+		BEGIN TRANSACTION 
+		SELECT @AvailableStock = Stockqty FROM Books WHERE BookID = @BookID
+		IF @AvailableStock IS NULL
+		BEGIN
+			ROLLBACK
+			PRINT 'Book not found'
+			RETURN
+		END
+		IF @AvailableStock < @Quantity
+		BEGIN 
+			ROLLBACK
+			PRINT 'Not enough stock'
+			RETURN
+		END
+		INSERT INTO Orders(BookID, Quantity, OrderDate)
+		VALUES(@BookID, @Quantity,GETDATE())
+		UPDATE Books
+		SET Stockqty = Stockqty - @Quantity
+		WHERE BookID = @BookID
+		COMMIT
+		PRINT 'Order placed successfully'
+	END TRY
+	BEGIN CATCH
+	IF @@TRANCOUNT > 0
+		ROLLBACK;
+		PRINT 'An error occured' + ERROR_MESSAGE()
+	END CATCH
+END;
+
+EXEC USP_PlaceOrder 3,50;
