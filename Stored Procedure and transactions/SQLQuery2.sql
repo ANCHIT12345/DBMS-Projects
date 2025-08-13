@@ -117,6 +117,9 @@ EXEC USP_TransferAmount @FromAccountID = 101, @ToAccountID = 202, @Amount = 500.
 --Update stock for Genre = 'Fiction' → Savepoint1
 --Update stock for Genre = 'Science' → Savepoint2
 --If the second update fails, rollback to Savepoint1.
+--Error Handling
+--Wrap a transaction in TRY...CATCH:
+--If any error occurs (e.g., updating a non-existent book), rollback and display a user-friendly message like "Transaction failed due to invalid data".
 
 CREATE PROC USP_UpdateStockGenre
 	@Genre1 VARCHAR(100),
@@ -144,14 +147,12 @@ SELECT * FROM Books
 --41
 --25
 
---Error Handling
---Wrap a transaction in TRY...CATCH:
---If any error occurs (e.g., updating a non-existent book), rollback and display a user-friendly message like "Transaction failed due to invalid data".
-
 
 
 --       5. Inventory Refill with Transaction
 --Create a transaction to refill stock for books that have StockQty < 5 and log each restock in a RestockLog table. Rollback if any insert into RestockLog fails.
+
+
 
 --USE E_commerce_Databases;
 
