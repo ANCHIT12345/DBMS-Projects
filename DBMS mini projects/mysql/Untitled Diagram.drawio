@@ -1,0 +1,127 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.1.6">
+  <diagram name="Page-1" id="O6JU9m0q_uucw0NrmxDc">
+    <mxGraphModel dx="2276" dy="789" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-2" target="DQHvwaoCl17KLMHvO-aF-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-2" value="work towards a highg paying job" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-3" target="DQHvwaoCl17KLMHvO-aF-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-3" target="DQHvwaoCl17KLMHvO-aF-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-40" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-3" target="DQHvwaoCl17KLMHvO-aF-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-3" value="Dont increase ur way of living control money reduce spending" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="120" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-4" target="DQHvwaoCl17KLMHvO-aF-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-4" value="Invest in assests Increase ur networth forget luxry until u make 5cr networth" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="120" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-6" target="DQHvwaoCl17KLMHvO-aF-18">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-6" value="keep it steady so ur rich presence dosnt goes down over time but increases" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="520" y="120" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-7" target="DQHvwaoCl17KLMHvO-aF-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-7" value="make every step automatic so ur money grows without ur effort and you still earn" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="680" y="120" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-8" target="DQHvwaoCl17KLMHvO-aF-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-8" value="enjoy life after its all setup for future generation" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-13" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-9" target="DQHvwaoCl17KLMHvO-aF-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-9" value="Skills&lt;br&gt;all kinds of skills in your field of experties&lt;div&gt;and as well other fields&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="40" y="240" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-11" target="DQHvwaoCl17KLMHvO-aF-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-11" value="controll spending&lt;div&gt;increase ur wealth slowly and accumulate over time&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="200" y="240" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-15" target="DQHvwaoCl17KLMHvO-aF-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-15" value="invest in assests so they start to pay intrest and more" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="360" y="240" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-20" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-18" target="DQHvwaoCl17KLMHvO-aF-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-18" value="arrange assests in such a way that they dont start to go down in value but increase instead" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="520" y="240" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-22" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-21" target="DQHvwaoCl17KLMHvO-aF-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-21" value="make this process of assest investing trading what ever automatic so ur net worth starts to increase overtime&lt;div&gt;and u make it to top 1%&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="680" y="240" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-25" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-23" target="DQHvwaoCl17KLMHvO-aF-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-23" value="buy what every you want live how every u want to but still increase ur wealth over time without worrying&amp;nbsp;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-24" target="DQHvwaoCl17KLMHvO-aF-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-24" value="next generation happy you happy every thing worked out the way it was supposed to" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="440" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-26" value="Teach next generation how to work towards it give them the skills and thats it" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="365" y="440" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-34" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-30" target="DQHvwaoCl17KLMHvO-aF-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-30" target="DQHvwaoCl17KLMHvO-aF-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-30" value="create a trust&lt;div&gt;and trust holds&lt;/div&gt;&lt;div&gt;evertything&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="210" y="10" width="100" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-35" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-32" target="DQHvwaoCl17KLMHvO-aF-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-36" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-32" target="DQHvwaoCl17KLMHvO-aF-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-37" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-32" target="DQHvwaoCl17KLMHvO-aF-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-32" value="Own nothing but own the trust" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="375" y="20" width="90" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-43" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="DQHvwaoCl17KLMHvO-aF-39" target="DQHvwaoCl17KLMHvO-aF-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-39" value="Buy assests like land&lt;div&gt;flats to rent stocks&amp;nbsp;&lt;/div&gt;&lt;div&gt;shares hedg funds (risky)&lt;/div&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="20" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="DQHvwaoCl17KLMHvO-aF-41" value="Invest in peoples needs and there dreams to make a thing come true" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-230" y="10" width="170" height="140" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

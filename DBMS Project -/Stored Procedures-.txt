@@ -1,0 +1,75 @@
+Stored Procedures-
+	Basic Tasks:
+		USP_UserRegistration
+		USP_CreateTicket-
+			Set_StatusTicket
+			Set_CategoryPerTicket
+			Set_PrioPerTicket
+		USP_AttachDocToTicket
+		USP_CommentAddTicket
+		USP_ReviewTicket
+		USP_Login
+	Update/Send/Notify/store Tasks:
+		USP_ModifyTicket					
+		USP_SendNotification
+		USP_StoreBackup
+		USP_CreateSaveHistory
+		USP_UpdateDocument
+		USP_SaveDocuments
+		USP_UpdateDataTicket
+	Checking tasks:
+		USP_GETTicketHistory
+		USP_GETDocumentAttachment
+		USP_GETUserDetails
+		USP_GETTicketDetails
+	Admin tasks:
+		USP_CreateAgent
+		USP_AssignAgent
+		USP_CreateDepartment
+		USP_CreatePrio
+		USP_CreateCategory
+	Admin Update/Check tasks
+		USP_EditAgent
+		USP_ChangeAgend
+		USP_ModifyCategory
+		USP_ModifyPrio
+		USP_ModifyDepartment
+	Report tasks:
+		USP_UserReports
+			Total no of tickets (Open, closed, ongoing, onhold)
+			Recently Created/Assigned
+			Weekly/Monthly report
+			AVG ETA
+		USP_AgentReports
+			Agent performace
+			Agent SLA
+			Agent Reviews
+			Agent Ratings
+		USP_RecentlyAssigendAgents
+			Recently Assigned task
+			Recently Assigned Agents
+		USP_ServiceReports
+			Total tickets open
+			Total tickets closed
+			Total tickets pending
+			Total tickets ongoing/hold/unresoved
+		USP_GenerateUserHistory		
+	Notification tasks:
+		USP_SendNotificationUser
+			Open ticket of user -
+				Time
+				Changes
+				New info
+				Responses
+				Resolve state
+		USP_SendNotificationAdmin
+			Management notification
+			Compilation notification of imp tickets
+			Err Notifications
+		USP_SendNotificationAgent
+			Waiting Tickets
+			Urgent Status Info Update etc
+Triggers:
+	TRG_AutoStoreComments
+	TRG_AutoUpdateTicketInfo
+	TRG_AutoCreateNotificationTask

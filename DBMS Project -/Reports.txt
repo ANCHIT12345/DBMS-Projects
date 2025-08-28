@@ -1,0 +1,12 @@
+Reports:
+	AgentReport:
+		Recently Assigned
+	UserReport:
+		Total no of tickets (Open, closed, ongoing, onhold)
+		Recently Created/Assigned
+		Weekly/Monthly report
+		AVG ETA
+	ManagementReport:
+		Agent Report
+		Service report
+		

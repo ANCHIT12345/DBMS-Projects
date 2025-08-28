@@ -1,0 +1,11 @@
+Entity list-
+	User Module-
+		User
+		Ticket
+		Document
+		Status
+		Comment
+		Notification
+	  Relationship 
+		User 1:M Ticket
+		
