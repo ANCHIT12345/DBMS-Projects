@@ -1,11 +1,29 @@
 Entity list-
 	User Module-
-		User
-		Ticket
-		Document
-		Status
-		Comment
-		Notification
+		User(User-ID, UT-ID, Dept-ID, Email, Ph-No., Password, Join-Date)
+		Ticket (Ticket-Id, UserID, Status-id, Review-ID, ticket-title, ticket-desc, ticket-prio, ticket-category, Create-Date, End-Date, ETA)
+		Document(Doc-ID, Ticket-ID, File-URL)
+		Status(Enum master)(Status-ID, status)
+		Category(catagory-ID, Category, ETA-per-Cat)
+		Priority(Enum master)(prio-id,priority)
+		Comment(Com-ID, Ticket-ID, content)
+		Notification (N-id, User-ID, Ticket-ID, Message)
+		Reviews(Review-ID, Review, Rating)
+		UserTicketMaping(map-ID, UserID, TicketID)
 	  Relationship 
 		User 1:M Ticket
+		Ticket 1:M Document
+		Ticket 1:M Notification
+		User 1:M Notification
+	Admin Module-
+		UserType(UT-ID, Role)
+		Department(Enum masterr)(Dept-ID, dept-name)
+		Agentperformance
+	   Relationship
+		Agentperformance 1:1 User
+		Department 1:M User
+		UserType 1:M User
+	Knowledge Base Module 
+		Aricle
+		Blog
 		
