@@ -4,14 +4,17 @@ USE Ticketing_Tool;
 CREATE TABLE [User]
 (
 [User_ID] INT PRIMARY KEY IDENTITY(1,1),
+[User_name] VARCHAR(25),
 UT_ID INT REFERENCES UserType(UT_ID),
 Dept_ID INT REFERENCES Department(Dept_ID),
 Email VARCHAR(320),
 CONSTRAINT chk_email CHECK(Email LIKE '___%@___%.__%'),
-Ph_No INT,
+Ph_No VARCHAR(15),
 [Password] VARCHAR(100),
 Join_Date DATE
 );
+
+
 
 CREATE TABLE Tickets
 (
@@ -61,13 +64,15 @@ Ticket_ID INT REFERENCES Tickets(Ticket_ID),
 content VARCHAR(2000)
 );
 
-CREATE TABLE Notification
+CREATE TABLE [Notification]
 (
 N_ID INT PRIMARY KEY IDENTITY(1,1),
 [USER_ID] INT REFERENCES [User]([User_ID]),
 Ticket_ID INT REFERENCES Tickets(Ticket_ID),
 [Message] VARCHAR(500)
 );
+
+
 
 CREATE TABLE Reviews
 (
@@ -83,6 +88,7 @@ Map_ID INT PRIMARY KEY IDENTITY(1,1),
 [User_ID] INT REFERENCES [User]([User_ID]),
 Ticket_ID INT REFERENCES Tickets(Ticket_ID)
 );
+
 
 CREATE TABLE UserType
 (
