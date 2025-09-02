@@ -416,10 +416,38 @@ END;
 --GO
 --------------------------------------------------------------------------------------------------------------------
 
+CREATE PROC USP_GETDocumentAttachment
+    @Ticket_ID INT
+AS
+BEGIN
+    SET NOCOUNT ON
+    IF NOT EXISTS(SELECT 1 FROM Tickets WHERE Tickets.Ticket_ID = @Ticket_ID)
+    BEGIN
+        RAISERROR('Invalid Ticket_ID. Ticket Not Found', 16, 1)
+        RETURN;
+    END; 
+    SELECT D.Doc_ID, D.Ticket_ID, D.File_Url, T.Ticket_ID AS Ticket_Number, T.Ticket_Title, T.Ticket_Desc, T.Create_Date 
+    FROM Document D INNER JOIN Tickets T ON D.Ticket_ID = T.Ticket_ID WHERE D.Ticket_ID = @Ticket_ID;
+END;
+
+EXEC USP_GETDocumentAttachment 8;
 
 
+CREATE PROC USP_GetUserDetails
+    @User_ID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF NOT EXISTS(SELECT 1 FROM [User] WHERE [User].[User_ID] = @User_ID)
+    BEGIN
+        RAISERROR('Invalid User_ID. User Not Found', 16, 1)
+        RETURN;
+    END;
+    SELECT U.[User_ID], U.[User_Name], U.Email, U.Ph_No, U.Join_Date, UT.Role As User_Role, D.Dept_name 
+    FROM [User] U LEFT JOIN UserType UT ON U.UT_ID = UT.UT_ID LEFT JOIN Department D ON U.Dept_ID = D.Dept_ID WHERE U.[User_ID] = @User_ID;
+END;
 
-
+EXEC USP_GetUserDetails 4;
 
 
 
