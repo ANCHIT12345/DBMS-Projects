@@ -31,6 +31,7 @@ ETA TIME,
 Agent_ID INT REFERENCES [User]([User_ID])
 );
 
+
 CREATE TABLE Document
 (
 Doc_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -44,6 +45,8 @@ Status_ID INT PRIMARY KEY IDENTITY(1,1),
 [Status] VARCHAR(20),
 );
 
+INSERT INTO [Status](Status) VALUES('Ongoing')
+
 CREATE TABLE Category
 (
 Category_ID INT PRIMARY KEY IDENTITY(1,1),
@@ -51,11 +54,15 @@ Category VARCHAR(20),
 ETA_per_Cat TIME
 );
 
+INSERT INTO Category(Category,ETA_per_Cat) VALUES('Urgent_Need', '10 days')
+
 CREATE TABLE [Priority]
 (
 Prio_ID INT PRIMARY KEY,
 [priority] VARCHAR(10)
 );
+
+INSERT INTO Priority(Prio_ID, [priority]) VALUES(1,'Low'),(2,'Medium'),(3,'High')
 
 CREATE TABLE Comment
 (
