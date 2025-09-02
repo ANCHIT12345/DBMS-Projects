@@ -450,7 +450,168 @@ END;
 EXEC USP_GetUserDetails 4;
 
 
+CREATE PROC USP_GETTicketDetails
+    @Ticket_ID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF NOT EXISTS(SELECT 1 FROM Tickets WHERE Tickets.Ticket_ID = @Ticket_ID)
+    BEGIN
+        RAISERROR('Invalid Ticket_ID, Ticket Not Found.', 16, 1)
+        RETURN;
+    END;
+     SELECT 
+        T.Ticket_ID,
+        T.Ticket_Title,
+        T.Ticket_Desc,
+        T.Create_Date,
+        T.End_Date,
+        T.ETA,
+        S.Status AS Current_Status,
+        P.priority AS Ticket_Priority,
+        C.Category AS Ticket_Category,
+        C.ETA_per_Cat,
+        U.User_ID AS Agent_ID,
+        U.User_name AS Agent_Name,
+        D.dept_name AS Agent_Department,
+        R.Review,
+        R.Rating
+    FROM Tickets T
+    LEFT JOIN [Status] S ON T.Status_ID = S.Status_ID
+    LEFT JOIN Priority P ON T.Ticket_Prio_ID = P.Prio_ID
+    LEFT JOIN Category C ON T.Ticket_Category = C.Category_ID
+    LEFT JOIN [User] U ON T.Agent_ID = U.User_ID
+    LEFT JOIN Department D ON U.Dept_ID = D.Dept_ID
+    LEFT JOIN Reviews R ON T.Review_ID = R.Review_ID
+    WHERE T.Ticket_ID = @Ticket_ID;
+    SELECT 
+        C.Comment_ID,
+        C.content AS Comment,
+        C.Ticket_ID
+    FROM Comment C
+    WHERE C.Ticket_ID = @Ticket_ID;
+    SELECT 
+        D.Doc_ID,
+        D.File_Url,
+        D.Ticket_ID
+    FROM Document D
+    WHERE D.Ticket_ID = @Ticket_ID;
+    SELECT 
+        N.N_ID,
+        N.Message,
+        N.User_ID,
+        U.User_name
+    FROM Notification N
+    LEFT JOIN [User] U ON N.User_ID = U.User_ID
+    WHERE N.Ticket_ID = @Ticket_ID;
+END;
 
+EXEC USP_GETTicketDetails 8;
+
+
+CREATE PROC USP_CreateAgent
+    @User_ID INT,
+    @Dept_ID INT,
+    @UT_ID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF NOT EXISTS (SELECT 1 FROM [User] WHERE [User_ID] = @User_ID )
+    BEGIN
+        RAISERROR('Invalid User_ID. User NOT FOUND', 16, 1)
+        RETURN;
+    END
+    IF NOT EXISTS (SELECT 1 FROM Department WHERE Dept_ID = @Dept_ID)
+    BEGIN
+        RAISERROR('Invalid Dept_ID. Department Not Found.', 16, 1)
+        RETURN;
+    END
+    IF NOT EXISTS (SELECT 1 FROM UserType WHERE UT_ID = @UT_ID)
+    BEGIN
+        RAISERROR('Invalid UT_ID. UserType Not Found', 16, 1)
+        RETURN;
+    END
+    UPDATE [User]
+    SET Dept_ID = @Dept_ID, UT_ID = @UT_ID WHERE [USER_ID] = @User_ID;
+    PRINT 'User Updated as an Agent'
+END;
+
+CREATE PROC USP_AssignAgent
+    @Ticket_ID INT,
+    @Agent_ID INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF NOT EXISTS(SELECT 1 FROM Tickets WHERE Ticket_ID = @Ticket_ID)
+    BEGIN
+        RAISERROR('Invalid Ticket_ID. Ticket Not Found', 16, 1)
+        RETURN;
+    END
+    IF NOT EXISTS (SELECT 1 FROM [User] WHERE [User_ID] = @Agent_ID)
+    BEGIN
+        RAISERROR('Invalid Agent_ID. Agent Not Found', 16, 1)
+    END
+    UPDATE Tickets
+    SET Agent_ID = @Agent_ID WHERE Ticket_ID = @Ticket_ID;
+    PRINT 'Agent successfuly assigned to the Ticket';
+END;
+
+
+ALTER PROC USP_CreateDepartment
+    @Dept_ID INT,
+    @Dept_Name VARCHAR(25)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS(SELECT 1 FROM Department WHERE Dept_Name = @Dept_Name)
+    BEGIN
+        RAISERROR('Department already exists', 16, 1)
+        RETURN;
+    END
+    INSERT INTO Department(Dept_ID,Dept_Name) VALUES(@Dept_ID,@Dept_Name);
+    SELECT SCOPE_IDENTITY() AS New_Dept_ID;
+END;
+
+EXEC USP_CreateDepartment 2,'Management';
+
+
+--SELECT * FROM Department
+
+
+CREATE PROC USP_CreatePrio
+    @Prio_ID INT,
+    @priority VARCHAR(10)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS(SELECT 1 FROM [Priority] WHERE [priority] = @priority)
+    BEGIN
+        RAISERROR('Priority Already exists', 16, 1)
+        RETURN;
+    END
+    INSERT INTO [Priority] (Prio_ID, [priority]) VALUES(@Prio_ID, @priority)
+    SELECT SCOPE_IDENTITY() AS New_Prio;
+END;
+
+EXEC USP_CreatePrio 4, 'test';
+
+
+CREATE PROC USP_CreateCategory
+    @Category VARCHAR(20),
+    @ETA VARCHAR(20)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF EXISTS (SELECT 1 FROM Category WHERE Category = @Category)
+    BEGIN
+        RAISERROR('Category Already Exists',16,1)
+        RETURN;
+    END
+    INSERT INTO Category(Category, ETA_per_Cat) VALUES (@Category, @ETA)
+    SELECT SCOPE_IDENTITY() AS New_Category
+END;
+
+EXEC USP_CreateCategory 'test', '1 day';
 
 
 
