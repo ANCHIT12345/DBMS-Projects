@@ -614,6 +614,64 @@ END;
 EXEC USP_CreateCategory 'test', '1 day';
 
 
+CREATE PROC USP_ModifyPrio
+    @Prio_ID INT,
+    @NewPrioName VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF NOT EXISTS(SELECT 1 FROM [Priority] WHERE Prio_ID = @Prio_ID)
+    BEGIN
+        RAISERROR('Invalid Prio_ID. Priority not found',16,1)
+        RETURN;
+    END;
+    IF EXISTS(SELECT 1 FROM [Priority] WHERE [priority] = @NewPrioName AND Prio_ID <> @Prio_ID)
+    BEGIN
+        RAISERROR('Priority with this name already exists.', 16, 1)
+        RETURN;
+    END;
+    UPDATE [Priority]
+    SET [priority] = @NewPrioName
+    WHERE Prio_ID = @Prio_ID;
+    PRINT 'Priority Updated';
+END;
+
+
+CREATE PROC USP_ModifyDepartment
+    @Dept_ID INT,
+    @new_dept_name VARCHAR(25)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF NOT EXISTS(SELECT 1 FROM Department WHERE Dept_ID = @Dept_ID)
+    BEGIN
+        RAISERROR('Invalid Dept_ID. Department not found.', 16, 1)
+        RETURN;
+    END;
+    IF EXISTS(SELECT 1 FROM Department WHERE dept_name = @new_dept_name AND Dept_ID <> @Dept_ID)
+    BEGIN
+        RAISERROR('Department with this name already exists.', 16, 1)
+        RETURN;
+    END;
+    UPDATE Department
+    SET dept_name = @new_dept_name
+    WHERE Dept_ID = @Dept_ID;
+    PRINT 'Department Updated.';
+END;
+
+    
+
+
+
+
+
+
+
+    
+
+
+
+
 
 
 

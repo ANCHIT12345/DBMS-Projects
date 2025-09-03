@@ -51,7 +51,7 @@ CREATE TABLE Category
 (
 Category_ID INT PRIMARY KEY IDENTITY(1,1),
 Category VARCHAR(20),
-ETA_per_Cat TIME
+ETA_per_Cat VARCHAR(20)
 );
 
 INSERT INTO Category(Category,ETA_per_Cat) VALUES('Urgent_Need', '10 days')

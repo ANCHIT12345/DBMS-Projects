@@ -31,7 +31,7 @@ Stored Procedures-
 		USP_CreateCategory
 	Admin Update/Check tasks
 		USP_EditAgent
-		USP_ChangeAgend
+		USP_ChangeAgent
 		USP_ModifyCategory
 		USP_ModifyPrio
 		USP_ModifyDepartment
