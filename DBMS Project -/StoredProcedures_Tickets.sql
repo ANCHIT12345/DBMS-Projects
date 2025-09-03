@@ -659,8 +659,88 @@ BEGIN
     PRINT 'Department Updated.';
 END;
 
-    
 
+CREATE PROC USP_UserReports
+    @User_ID INT,
+    @ReportType VARCHAR(20)   -- 'SUMMARY', 'RECENT', 'WEEKLY', 'MONTHLY', 'AVG_ETA'
+AS
+BEGIN
+    SET NOCOUNT ON;
+    IF NOT EXISTS (SELECT 1 FROM [User] WHERE User_ID = @User_ID)
+    BEGIN
+        RAISERROR('Invalid User_ID. User does not exist.', 16, 1);
+        RETURN;
+    END;
+    IF @ReportType = 'SUMMARY'
+    BEGIN
+        SELECT 
+            S.Status,
+            COUNT(*) AS TotalTickets
+        FROM Tickets T
+        INNER JOIN [Status] S ON T.Status_ID = S.Status_ID
+        INNER JOIN UserTicketMaping M ON T.Ticket_ID = M.Ticket_ID
+        WHERE M.User_ID = @User_ID
+        GROUP BY S.Status;
+        RETURN;
+    END;
+    IF @ReportType = 'RECENT'
+    BEGIN
+        SELECT TOP 10
+            T.Ticket_ID,
+            T.Ticket_Title,
+            T.Ticket_Desc,
+            T.Create_Date,
+            U.User_name AS Assigned_Agent
+        FROM Tickets T
+        INNER JOIN UserTicketMaping M ON T.Ticket_ID = M.Ticket_ID
+        LEFT JOIN [User] U ON T.Agent_ID = U.User_ID
+        WHERE M.User_ID = @User_ID
+        ORDER BY T.Create_Date DESC;
+        RETURN;
+    END;
+    IF @ReportType = 'WEEKLY'
+    BEGIN
+        SELECT 
+            DATEPART(WEEK, T.Create_Date) AS WeekNumber,
+            COUNT(*) AS TicketsCreated
+        FROM Tickets T
+        INNER JOIN UserTicketMaping M ON T.Ticket_ID = M.Ticket_ID
+        WHERE M.User_ID = @User_ID
+          AND T.Create_Date >= DATEADD(WEEK, -4, GETDATE()) -- last 4 weeks
+        GROUP BY DATEPART(WEEK, T.Create_Date)
+        ORDER BY WeekNumber;
+        RETURN;
+    END;
+    IF @ReportType = 'MONTHLY'
+    BEGIN
+        SELECT 
+            DATENAME(MONTH, T.Create_Date) AS MonthName,
+            COUNT(*) AS TicketsCreated
+        FROM Tickets T
+        INNER JOIN UserTicketMaping M ON T.Ticket_ID = M.Ticket_ID
+        WHERE M.User_ID = @User_ID
+          AND T.Create_Date >= DATEADD(MONTH, -6, GETDATE()) -- last 6 months
+        GROUP BY DATENAME(MONTH, T.Create_Date), DATEPART(MONTH, T.Create_Date)
+        ORDER BY DATEPART(MONTH, T.Create_Date);
+        RETURN;
+    END;
+    IF @ReportType = 'AVG_ETA'
+    BEGIN
+        SELECT 
+            AVG(DATEDIFF(HOUR, T.Create_Date, T.End_Date)) AS Avg_ETA_Hours
+        FROM Tickets T
+        INNER JOIN UserTicketMaping M ON T.Ticket_ID = M.Ticket_ID
+        WHERE M.User_ID = @User_ID
+          AND T.End_Date IS NOT NULL;
+        RETURN;
+    END;
+    RAISERROR('Invalid ReportType. Use SUMMARY, RECENT, WEEKLY, MONTHLY, AVG_ETA.', 16, 1);
+END;
+
+
+EXEC USP_UserReports 4, 'RECENT';
+
+SELECT * FROM UserTicketMaping;
 
 
 
